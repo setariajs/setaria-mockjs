@@ -1,9 +1,13 @@
 {
-  "name": "setaria-mockjs",
+  "name": "@setaria/mockjs",
   "title": "setaria-mockjs",
   "description": "生成随机数据 & 拦截 Ajax 请求",
   "version": "1.0.0",
   "homepage": "http://mockjs.com/",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
   "keywords": [
     "mock",
     "mockJSON",
