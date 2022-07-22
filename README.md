@@ -16,7 +16,7 @@ The official site: <http://mockjs.com>
 
 * 在mockjs基础上，增加对responseHeaders的拦截配置
 ```javascript
-import Mock from 'mockjs';
+import Mock from 'setaria-mockjs';
 
 // By 全局控制
 Mock.setup({
