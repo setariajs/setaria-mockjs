@@ -97,10 +97,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	    * Mock.mock( rurl, function(options) )
 	    * Mock.mock( rurl, rtype, template )
 	    * Mock.mock( rurl, rtype, function(options) )
+	    * Mock.mock( rurl, rtype, function(options), config )
 
 	    根据数据模板生成模拟数据。
 	*/
-	Mock.mock = function(rurl, rtype, template) {
+	Mock.mock = function(rurl, rtype, template, config) {
 	    // Mock.mock(template)
 	    if (arguments.length === 1) {
 	        return Handler.gen(rurl)
@@ -115,12 +116,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	    Mock._mocked[rurl + (rtype || '')] = {
 	        rurl: rurl,
 	        rtype: rtype,
-	        template: template
+	        template: template,
+	        config: config
 	    }
 	    return Mock
 	}
 
 	module.exports = Mock
+
 
 /***/ }),
 /* 1 */
@@ -8334,6 +8337,8 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        // 找到了匹配的数据模板，开始拦截 XHR 请求
 	        this.match = true
+	        // 设置单个请求的属性
+	        Util.extend(this.custom, item.config)
 	        this.custom.template = item
 	        this.readyState = MockXMLHttpRequest.OPENED
 	        this.dispatchEvent(new Event('readystatechange' /*, false, false, this*/ ))
