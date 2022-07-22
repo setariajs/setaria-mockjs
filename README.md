@@ -12,6 +12,37 @@ Mock.js is a simulation data generator to help the front-end to develop and prot
 
 The official site: <http://mockjs.com>
 
+## 专有优化
+
+* 在mockjs基础上，增加对responseHeaders的拦截配置
+```javascript
+import Mock from 'mockjs';
+
+// By 全局控制
+Mock.setup({
+    responseHeaders: {
+      'content-type': 'application/json'
+    }
+});
+
+
+// By 接口控制
+Mock.mock('/url','get',()=>{
+    return {
+        code:200,
+        message:'',
+        data:{}
+    }
+},{
+    responseHeaders: {
+      'content-type': 'application/json'
+    }
+})
+
+```
+
+
+
 ## Features
 
 * Generate simulated data according to the data template
