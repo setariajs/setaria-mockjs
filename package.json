@@ -18,6 +18,7 @@
     "commander": "*"
   },
   "devDependencies": {
+    "graceful-fs": "^4.2.3",
     "gulp": "^3.9.0",
     "gulp-connect": "^5.7.0",
     "gulp-coveralls": "^0.1.4",
