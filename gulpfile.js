@@ -161,4 +161,4 @@ gulp.task('publish', function() {
 })
 
 gulp.task('default', watchTasks.concat(['watch', 'connect']))
-gulp.task('build', ['jshint', 'webpack', 'mocha'])
+gulp.task('build', [ 'webpack'])

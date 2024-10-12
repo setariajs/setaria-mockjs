@@ -23,13 +23,13 @@ var Mock = {
     toJSONSchema: toJSONSchema,
     valid: valid,
     heredoc: Util.heredoc,
-    setup: function(settings) {
-        return XHR.setup(settings)
+    setup: function (settings) {
+        return XHR ? XHR.setup(settings) : null
     },
     _mocked: {}
 }
 
-Mock.version = '1.0.1-beta3'
+Mock.version = '1.0.2'
 
 // 避免循环依赖
 if (XHR) XHR.Mock = Mock
@@ -45,7 +45,7 @@ if (XHR) XHR.Mock = Mock
 
     根据数据模板生成模拟数据。
 */
-Mock.mock = function(rurl, rtype, template, config) {
+Mock.mock = function (rurl, rtype, template, config) {
     // Mock.mock(template)
     if (arguments.length === 1) {
         return Handler.gen(rurl)
